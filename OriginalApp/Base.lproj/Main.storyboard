@@ -51,7 +51,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="今日のToDo"/>
                                 <connections>
-                                    <segue destination="IaV-3d-7Kj" kind="presentation" id="a0O-M5-3Be"/>
+                                    <segue destination="IaV-3d-7Kj" kind="presentation" modalPresentationStyle="fullScreen" id="a0O-M5-3Be"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,7 +69,7 @@
             <objects>
                 <viewController id="IaV-3d-7Kj" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gac-qG-qrT">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今日のToDo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QU-BA-th6">
