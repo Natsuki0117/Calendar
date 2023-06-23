@@ -18,5 +18,5 @@ class ViewController: UIViewController {
 }
 
 //Mainもいじってrealmも入れたけど何故か変更判定にならなかったりアクセストークンがないって怒られたのでこれでコミットします
-
+　　
 
