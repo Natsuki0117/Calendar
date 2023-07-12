@@ -17,8 +17,9 @@
 		809BD9C42A44828C00BFB643 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 809BD9C32A44828C00BFB643 /* RealmSwift */; };
 		809BD9CB2A44954900BFB643 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801941D92A4301A2005E7C40 /* FSCalendar.framework */; };
 		809BD9F52A5B016600BFB643 /* itemfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BD9F42A5B016600BFB643 /* itemfile.swift */; };
-		809BD9F82A5B031700BFB643 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BD9F62A5B031600BFB643 /* ItemTableViewCell.swift */; };
-		809BD9F92A5B031700BFB643 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 809BD9F72A5B031600BFB643 /* ItemTableViewCell.xib */; };
+		809BD9FC2A5EA71200BFB643 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BD9FA2A5EA71200BFB643 /* TableViewCell.swift */; };
+		809BD9FD2A5EA71200BFB643 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 809BD9FB2A5EA71200BFB643 /* TableViewCell.xib */; };
+		809BD9FF2A5EB78E00BFB643 /* NextViewItemControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BD9FE2A5EB78E00BFB643 /* NextViewItemControllerViewController.swift */; };
 		A7E42ACFB5E7C7A412773393 /* Pods_OriginalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B53095DE5B0BC4319A42E93 /* Pods_OriginalApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +35,9 @@
 		801941D32A42FEB8005E7C40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		801941D92A4301A2005E7C40 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		809BD9F42A5B016600BFB643 /* itemfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemfile.swift; sourceTree = "<group>"; };
-		809BD9F62A5B031600BFB643 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
-		809BD9F72A5B031600BFB643 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		809BD9FA2A5EA71200BFB643 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		809BD9FB2A5EA71200BFB643 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		809BD9FE2A5EB78E00BFB643 /* NextViewItemControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewItemControllerViewController.swift; sourceTree = "<group>"; };
 		D3C4B1024F73BEB65C3A5173 /* Pods-OriginalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalApp.debug.xcconfig"; path = "Target Support Files/Pods-OriginalApp/Pods-OriginalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D76BA31E4D1EDD754C48CE78 /* Pods-OriginalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalApp.release.xcconfig"; path = "Target Support Files/Pods-OriginalApp/Pods-OriginalApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,8 +95,9 @@
 				801941CE2A42FEB8005E7C40 /* Assets.xcassets */,
 				801941D02A42FEB8005E7C40 /* LaunchScreen.storyboard */,
 				801941D32A42FEB8005E7C40 /* Info.plist */,
-				809BD9F62A5B031600BFB643 /* ItemTableViewCell.swift */,
-				809BD9F72A5B031600BFB643 /* ItemTableViewCell.xib */,
+				809BD9FA2A5EA71200BFB643 /* TableViewCell.swift */,
+				809BD9FB2A5EA71200BFB643 /* TableViewCell.xib */,
+				809BD9FE2A5EB78E00BFB643 /* NextViewItemControllerViewController.swift */,
 			);
 			path = OriginalApp;
 			sourceTree = "<group>";
@@ -175,8 +178,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809BD9F92A5B031700BFB643 /* ItemTableViewCell.xib in Resources */,
 				801941D22A42FEB8005E7C40 /* LaunchScreen.storyboard in Resources */,
+				809BD9FD2A5EA71200BFB643 /* TableViewCell.xib in Resources */,
 				801941CF2A42FEB8005E7C40 /* Assets.xcassets in Resources */,
 				801941CD2A42FEB7005E7C40 /* Main.storyboard in Resources */,
 			);
@@ -231,9 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				809BD9FC2A5EA71200BFB643 /* TableViewCell.swift in Sources */,
 				809BD9F52A5B016600BFB643 /* itemfile.swift in Sources */,
 				801941CA2A42FEB7005E7C40 /* ViewController.swift in Sources */,
-				809BD9F82A5B031700BFB643 /* ItemTableViewCell.swift in Sources */,
+				809BD9FF2A5EB78E00BFB643 /* NextViewItemControllerViewController.swift in Sources */,
 				801941C62A42FEB7005E7C40 /* AppDelegate.swift in Sources */,
 				801941C82A42FEB7005E7C40 /* SceneDelegate.swift in Sources */,
 			);

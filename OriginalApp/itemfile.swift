@@ -10,7 +10,8 @@ import RealmSwift
 
 class item: Object{
     @Persisted var title: String = ""
-    @Persisted var date: Int = 0
+    @Persisted var date: String = ""
     @Persisted var isMarked: Bool = false
+    
+   
 }
-//aaaaaaaa
