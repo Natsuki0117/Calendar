@@ -98,6 +98,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="戻る"/>
+                                <connections>
+                                    <action selector="back:" destination="IaV-3d-7Kj" eventType="touchUpInside" id="PwP-mW-5Ks"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FMy-tx-YBk"/>
