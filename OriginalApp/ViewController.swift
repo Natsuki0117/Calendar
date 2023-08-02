@@ -9,12 +9,15 @@ import UIKit
 import RealmSwift
 import FSCalendar
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSource,FSCalendarDelegate {
     
     @IBOutlet var tableview: UITableView!
+    @IBOutlet var calendar: FSCalendar!
     
     let realm = try! Realm()
     var items: [item] = []
+    
+    var date: Date!
     
     
     override func viewDidLoad() {
@@ -25,7 +28,12 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableview.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
         items = readItems()
         
+        calendar.dataSource = self
+        calendar.delegate = self
+        
     }
+    
+   
     
     override func viewWillAppear(_ animated: Bool) {
         items = readItems()
@@ -62,19 +70,26 @@ class ViewController: UIViewController, UITableViewDataSource {
     func readItems() -> [item] {
         return Array(realm.objects(item.self))
     }
-  
+    
     internal func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            items.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            // realmのデータを更新
-            
+//             realmのデータを更新
+            try! realm.write {
+                let test = items.remove(at: indexPath.row)
+                realm.delete(test)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
         }
-        
+    }
+    
+    @IBAction func addItem(){
+        let nextVC = storyboard?.instantiateViewController(withIdentifier: "NewItem") as! NextViewItemControllerViewController
+        nextVC.date = date
+        self.present(nextVC, animated: true)
         
     }
     
-//selfの使い方がよくわからない
-self.tableview.deleteRows(at: <#T##[IndexPath]#>, with: .automatic)
-  
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        self.date = date
+    }
 }

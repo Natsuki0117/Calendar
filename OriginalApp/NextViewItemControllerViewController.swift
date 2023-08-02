@@ -10,6 +10,8 @@ import RealmSwift
 
 class NextViewItemControllerViewController: UIViewController {
     
+    var date: Date!
+    
     let realm = try! Realm()
     
     @IBOutlet var titleTextField: UITextField!
@@ -19,6 +21,10 @@ class NextViewItemControllerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        datetextField.text = df.string(from: date)
 
         // Do any additional setup after loading the view.
     }
@@ -31,6 +37,10 @@ class NextViewItemControllerViewController: UIViewController {
         createItem(item: item)
         
         self.dismiss(animated: true)
+    }
+    
+    @IBAction func backBtnAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func createItem(item: item) {

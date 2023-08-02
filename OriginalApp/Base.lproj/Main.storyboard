@@ -54,7 +54,7 @@
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="追加"/>
                                     <connections>
-                                        <segue destination="wfL-O6-4u2" kind="presentation" identifier="toNextItemView" modalPresentationStyle="fullScreen" id="EgQ-eN-dk0"/>
+                                        <action selector="addItem" destination="BYZ-38-t0r" eventType="touchUpInside" id="znJ-5Z-bY4"/>
                                     </connections>
                                 </button>
                             </tableView>
@@ -64,6 +64,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Vow-mN-YG6"/>
                     <connections>
+                        <outlet property="calendar" destination="uOk-3U-Jjx" id="KKj-Fj-4U4"/>
                         <outlet property="tableview" destination="6YA-0b-7oW" id="NJt-wQ-OLQ"/>
                     </connections>
                 </viewController>
@@ -74,7 +75,7 @@
         <!--Next View Item Controller View Controller-->
         <scene sceneID="HQd-V6-pWU">
             <objects>
-                <viewController id="wfL-O6-4u2" customClass="NextViewItemControllerViewController" customModule="OriginalApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewItem" id="wfL-O6-4u2" customClass="NextViewItemControllerViewController" customModule="OriginalApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sm8-V7-4y8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,12 +118,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3q-as-Xz2">
-                                <rect key="frame" x="159" y="651" width="83" height="53"/>
+                                <rect key="frame" x="236" y="655" width="83" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Save"/>
                                 <connections>
                                     <action selector="save" destination="wfL-O6-4u2" eventType="touchUpInside" id="TXa-9g-0pw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L44-cJ-hnW">
+                                <rect key="frame" x="58" y="651" width="83" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="return"/>
+                                <connections>
+                                    <action selector="backBtnAction:" destination="wfL-O6-4u2" eventType="touchUpInside" id="R95-4T-Ooi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -137,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zp7-a4-KMI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="15"/>
+            <point key="canvasLocation" x="1900" y="14.788732394366198"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aQR-CT-zqk">
