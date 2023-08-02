@@ -74,7 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
     }
     
-
-    self.tableview.deleteRows(at: <#T##[IndexPath]#>, with: .automatic)
+//selfの使い方がよくわからない
+self.tableview.deleteRows(at: <#T##[IndexPath]#>, with: .automatic)
   
 }
