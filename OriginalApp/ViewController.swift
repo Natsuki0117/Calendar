@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import FSCalendar
 
 class ViewController: UIViewController, UITableViewDataSource {
     
@@ -67,7 +68,13 @@ class ViewController: UIViewController, UITableViewDataSource {
             items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             // realmのデータを更新
+            
         }
+        
+        
     }
+    
+
+    self.tableview.deleteRows(at: <#T##[IndexPath]#>, with: .automatic)
   
 }
