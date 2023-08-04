@@ -81,7 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
     
     
     
-    func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         items = readItems()
         tableview.reloadData()
     }
@@ -135,8 +135,9 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
         
     }
     
-    // 日付をタップした時の処理
-    
+    // realmの検索したデータがtbleviewに出てくるのかが把握しきれてない
+//    エラー解決してbuildできるように頑張る
+//    早く提出しろ！！！
     
     
 }
