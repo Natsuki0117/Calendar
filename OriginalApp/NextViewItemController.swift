@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class NextViewItemControllerViewController: UIViewController {
+class NextViewItemController: UIViewController {
     
     var date: Date!
     
