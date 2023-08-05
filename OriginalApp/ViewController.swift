@@ -12,8 +12,8 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
   
     @IBAction func addItem(){
          let nextVC = storyboard?.instantiateViewController(withIdentifier: "NewItem") as! NextViewItemController
-         nextVC.date = date
-         self.present(nextVC, animated: true)
+        nextVC.date = self.date
+        self.present(nextVC, animated: true, completion: nil)
          
      }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,6 +44,8 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
     
     var realm = try! Realm()
     var items: [item] = []
+    var label:UILabel!
+    let df = DateFormatter()
     
     var date: Date!
     
@@ -55,12 +57,15 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+    
+        
         tableview.dataSource = self
         tableview.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
         items = readItems()
         
         self.calendar.dataSource = self
         self.calendar.delegate = self
+        
         
         _ = calendar
         self.calendar
@@ -82,8 +87,10 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
         }
         
         func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            df.dateFormat = "yyyy/MM/dd"
+            label.text = df.string(from: date)
             self.date = date
-            print(date)
+            print(self.date ?? <#default value#>!)
         }
         
         
