@@ -22,7 +22,7 @@ class NextViewItemController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var df = DateFormatter()
+        let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
         datetextField.text = df.string(from: date)
 
