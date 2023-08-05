@@ -10,6 +10,14 @@ import RealmSwift
 import FSCalendar
 
 class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSource,FSCalendarDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
    
     
     
@@ -63,16 +71,14 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
                 // results[i]は"item"クラスとしてアクセスできます。
                 for i in 0 ..< count {
                     print("\(String(describing: results[i].isSameObject(as: )))")
-                } catch {
-                    
-                    
-                    //                エラー処理必要
                 }
-                
-                
+
+                    //                エラー処理必要
                 func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
                     self.date = date
                 }
+                
+            } catch {
                 
             }
             
@@ -135,11 +141,7 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
             
         }
         
-        // realmの検索したデータがtbleviewに出てくるのかが把握しきれてない
-        //    エラー解決してbuildできるように頑張る
-        //    早く提出しろ！！！
-        
-        
+       
         
         
     }
