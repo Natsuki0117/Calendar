@@ -83,6 +83,7 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
         
         func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
             self.date = date
+            print(date)
         }
         
         
