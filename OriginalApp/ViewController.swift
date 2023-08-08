@@ -46,6 +46,7 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
     var items: [item] = []
     var label:UILabel!
     let df = DateFormatter()
+    let fscCalendar = FSCalendar()
     
     var date: Date!
     
@@ -90,7 +91,6 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
             df.dateFormat = "yyyy/MM/dd"
             label.text = df.string(from: date)
             self.date = date
-            print(self.date ?? <#default value#>!)
         }
         
         
