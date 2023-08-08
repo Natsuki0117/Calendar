@@ -9,13 +9,13 @@ import RealmSwift
 import FSCalendar
 
 class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSource,FSCalendarDelegate {
-  
+    
     @IBAction func addItem(){
-         let nextVC = storyboard?.instantiateViewController(withIdentifier: "NewItem") as! NextViewItemController
+        let nextVC = storyboard?.instantiateViewController(withIdentifier: "NewItem") as! NextViewItemController
         nextVC.date = self.date
         self.present(nextVC, animated: true, completion: nil)
-         
-     }
+        
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -33,9 +33,9 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
         
     }
     
-
     
-  
+    
+    
     
     
     
@@ -50,7 +50,12 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
     
     var date: Date!
     
-   
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        df.dateFormat = "yyyy/MM/dd"
+        label.text = df.string(from: date)
+        self.date = date
+    }
     
     
     
@@ -58,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-    
+        
         
         tableview.dataSource = self
         tableview.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
@@ -72,26 +77,27 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
         self.calendar
         
         let results = realm.objects(item.self)
-            
+        
         let count = results.count
         if (count == 0) {
             
         } else {
-                
+            
             for result in results {
                 print("\(String(describing: result.isSameObject(as: )))")
             }
-
+            
             for i in 0 ..< count {
                 print("\(String(describing: results[i].isSameObject(as: )))")
             }
         }
         
-        func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-            df.dateFormat = "yyyy/MM/dd"
-            label.text = df.string(from: date)
-            self.date = date
-        }
+        //        func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        //            df.dateFormat = "yyyy/MM/dd"
+        //            label.text = df.string(from: date)
+        //            self.date = date
+        //        }
+        //
         
         
         func viewWillAppear(_ animated: Bool) {
@@ -141,7 +147,8 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
             }
         }
         
-  
+        
+        
+        
     }
-    
 }
