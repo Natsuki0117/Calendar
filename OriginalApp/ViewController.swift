@@ -92,13 +92,7 @@ class ViewController: UIViewController, UITableViewDataSource, FSCalendarDataSou
             }
         }
         
-        //        func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        //            df.dateFormat = "yyyy/MM/dd"
-        //            label.text = df.string(from: date)
-        //            self.date = date
-        //        }
-        //
-        
+       
         
         func viewWillAppear(_ animated: Bool) {
             items = readItems()
