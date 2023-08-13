@@ -83,11 +83,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         nextVC.date = self.date
         self.present(nextVC, animated: true, completion: nil)
     }
+    
+    //    tableviewへの表示
+    func filterModel() {
+        var filterdEvents: [[String:String]] = []
+        for ItemCell in item {
+            if eventModel["date"] == stringFromDate(date: selectedDate as Date, format: "yyyy.MM.dd") {
+                filterdEvents.append(eventModel)
+            }
+            var someStr: String?
+            guard let unwrapped = someStr else { return }
+            Print (unwrapped)
+        }
+//        filterdModel = filterdEvents
+    }
+  
+    
 }
 
-// 以下はFSCalendar関連のクラス拡張
-extension ViewController: FSCalendarDataSource, FSCalendarDelegate {
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        self.date = date
+    // 以下はFSCalendar関連のクラス拡張
+    extension ViewController: FSCalendarDataSource, FSCalendarDelegate {
+        func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            self.date = date
+        }
     }
-}
+
+
