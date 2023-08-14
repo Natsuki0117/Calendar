@@ -14,7 +14,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let df = DateFormatter()
     let realm = try! Realm()
-    
     var items: [item] = []
     var date: Date!
     
@@ -22,7 +21,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewWillAppear(_ animated: Bool) {
         items = readItems()
         tableview.reloadData()
-    }
+   
+}
     
     // 画面表示時に実行される処理
     override func viewDidLoad() {
@@ -44,6 +44,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print("\(String(describing: results[i].isSameObject(as: )))")
             }
         }
+        items = readItems()
+        tableview.reloadData()
     }
     
     // テーブルビューの行数
@@ -85,26 +87,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     //    tableviewへの表示
-    func filterModel() {
-        var filterdEvents: [[String:String]] = []
-        for ItemCell in item {
-            if eventModel["date"] == stringFromDate(date: selectedDate as Date, format: "yyyy.MM.dd") {
-                filterdEvents.append(eventModel)
-            }
-            var someStr: String?
-            guard let unwrapped = someStr else { return }
-            Print (unwrapped)
-        }
-//        filterdModel = filterdEvents
-    }
+//    func filterModel() {
+//        var filterdEvents: [[String:String]] = []
+//        for ItemCell in item {
+//            if eventModel["date"] == stringFromDate(date: selectedDate as Date, format: "yyyy.MM.dd") {
+//                filterdEvents.append(eventModel)
+//            }
+//            var someStr: String?
+//            guard let unwrapped = someStr else { return }
+//            Print (unwrapped)
+//        }
+//      filterdModel = filterdEvents
+//    }
   
     
 }
 
     // 以下はFSCalendar関連のクラス拡張
-    extension ViewController: FSCalendarDataSource, FSCalendarDelegate {
-        func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-            self.date = date
+//ここが日付を押した時の処理をしている
+    extension ViewController: FSCalendarDataSource,
+    FSCalendarDelegate {
+func calendar(_ calendar: FSCalendar, didSelect
+    date: Date, at monthPosition:
+    FSCalendarMonthPosition) {
+    self.date = date
         }
     }
 

@@ -13,5 +13,4 @@ class item: Object{
     @Persisted var date: String = ""
     @Persisted var isMarked: Bool = false
     
-   
 }

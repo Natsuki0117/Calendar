@@ -8,6 +8,8 @@
 import UIKit
 import RealmSwift
 
+var items: [item] = []
+
 class NextViewItemController: UIViewController {
     
     var date: Date!
@@ -18,13 +20,12 @@ class NextViewItemController: UIViewController {
     @IBOutlet var datetextField: UITextField!
     @IBOutlet var markSwitch: UISwitch!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let df = DateFormatter()
+     let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
-        datetextField.text = df.string(from: date)
+       datetextField.text = df.string(from: date)
 
         // Do any additional setup after loading the view.
     }
@@ -35,7 +36,12 @@ class NextViewItemController: UIViewController {
         item.date = datetextField.text ?? ""
         item.isMarked = markSwitch.isOn
         createItem(item: item)
-        
+        if let presentingViewController = presentingViewController as? ViewController {
+                   presentingViewController.items = presentingViewController.readItems()
+                   presentingViewController.tableview.reloadData()
+               }
+
+//       画面遷移前のtableviewのデータとテーブルをリロード
         self.dismiss(animated: true)
     }
     
@@ -48,6 +54,5 @@ class NextViewItemController: UIViewController {
             realm.add(item)
         }
     }
-
-
 }
+
