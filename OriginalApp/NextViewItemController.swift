@@ -25,9 +25,14 @@ class NextViewItemController: UIViewController {
         
      let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
-       datetextField.text = df.string(from: date)
-        self.date
-        // Do any additional setup after loading the view.
+        if let date = date {
+               datetextField.text = df.string(from: date)
+           } else {
+               datetextField.text = "日付が設定されていません" // もしくは他のデフォルト値を設定
+           }
+//       datetextField.text = df.string(from: date)
+//        self.date
+//        // Do any additional setup after loading the view.
     }
     
     @IBAction func save(){
