@@ -1,9 +1,3 @@
-//
-//  ViewController.swift
-//  OriginalApp
-//
-//  Created by 金井菜津希 on 2023/06/21.
-//
 import UIKit
 import RealmSwift
 import FSCalendar
@@ -16,14 +10,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let realm = try! Realm()
     var items: [item] = []
     var date: Date!
+    var displayedEvents: [item] = [] // 表示するイベントを保持する配列
     
-    // 画面表示前に実行される処理
-    override func viewWillAppear(_ animated: Bool) {
-        items = readItems()
-        tableview.reloadData()
-   
-}
-    
+    // 画面が表示される直前にtableViewを更新
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        tableView.reloadData()
+//    }
+//
     // 画面表示時に実行される処理
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +44,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // テーブルビューの行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return displayedEvents.count // displayedEventsの数を返すように変更
     }
     
     // テーブルビューの各行に表示する内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemTableViewCell
-        let item = items[indexPath.row]
+        let item = displayedEvents[indexPath.row] // displayedEventsからデータを取得するように変更
         cell.setCell(title: item.title, date: item.date, isMarked: item.isMarked)
         return cell
     }
@@ -72,7 +65,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if editingStyle == .delete {
             // Realmのデータを更新
             try! realm.write {
-                let test = items.remove(at: indexPath.row)
+                let test = displayedEvents.remove(at: indexPath.row) // displayedEventsから削除
                 realm.delete(test)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
@@ -80,38 +73,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     // アイテム追加ボタン押下時の処理(画面遷移)
-    @IBAction func addItem(){
+    @IBAction func addItem() {
         let nextVC = storyboard?.instantiateViewController(withIdentifier: "NewItem") as! NextViewItemController
         nextVC.date = self.date
         self.present(nextVC, animated: true, completion: nil)
     }
-    
-    //    tableviewへの表示
-//    func filterModel() {
-//        var filterdEvents: [[String:String]] = []
-//        for ItemCell in item {
-//            if eventModel["date"] == stringFromDate(date: selectedDate as Date, format: "yyyy.MM.dd") {
-//                filterdEvents.append(eventModel)
-//            }
-//            var someStr: String?
-//            guard let unwrapped = someStr else { return }
-//            Print (unwrapped)
-//        }
-//      filterdModel = filterdEvents
-//    }
-  
-    
 }
 
-    // 以下はFSCalendar関連のクラス拡張
-//ここが日付を押した時の処理をしている
-    extension ViewController: FSCalendarDataSource,
-    FSCalendarDelegate {
-func calendar(_ calendar: FSCalendar, didSelect
-    date: Date, at monthPosition:
-    FSCalendarMonthPosition) {
-    self.date = date
-        }
+// 以下はFSCalendar関連のクラス拡張
+extension ViewController: FSCalendarDelegate {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        self.date = date
+        
+        // 日付が一致するイベントを取得
+        //        let eventsForDate = getEvents(for: date)
+        //
+        // テーブルビューに表示するイベントを更新
+        //        displayedEvents = eventsForDate
+        //        tableview.reloadData()
+        //    }
+        //
+        //    // 日付に対応するイベントをフィルタリングして取得
+        //    func getEvents(for date: Date) -> [item] {
+        //        return items.filter { $0.date == date }
+        //    }
     }
-
-
+    
+}

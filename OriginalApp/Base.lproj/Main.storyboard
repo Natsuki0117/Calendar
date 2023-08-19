@@ -43,19 +43,11 @@
                                         <color key="value" red="0.42153492910000001" green="0.46646254679999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="nGu-08-NTu"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="h7J-bG-Kq0"/>
-                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6YA-0b-7oW">
                                 <rect key="frame" x="31" y="552" width="313" height="226"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="qLb-zC-utL"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dTE-YZ-7pH"/>
-                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ffe-Qk-f8T">
                                 <rect key="frame" x="31" y="497" width="313" height="56"/>
@@ -63,7 +55,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="追加"/>
                                 <connections>
-                                    <action selector="addItem" destination="BYZ-38-t0r" eventType="touchUpInside" id="dUq-7y-4WP"/>
+                                    <action selector="addItem" destination="BYZ-38-t0r" eventType="touchUpInside" id="GIb-rU-ovi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -72,8 +64,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Vow-mN-YG6"/>
                     <connections>
-                        <outlet property="calendar" destination="uOk-3U-Jjx" id="l40-SU-mef"/>
-                        <outlet property="tableview" destination="6YA-0b-7oW" id="f9V-jO-CV3"/>
+                        <outlet property="calendar" destination="uOk-3U-Jjx" id="v9s-8Q-F9L"/>
+                        <outlet property="tableview" destination="6YA-0b-7oW" id="f3i-xt-vZj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -26,7 +26,7 @@ class NextViewItemController: UIViewController {
      let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
        datetextField.text = df.string(from: date)
-
+        self.date
         // Do any additional setup after loading the view.
     }
     
