@@ -8,31 +8,22 @@
 import UIKit
 import RealmSwift
 
-var items: [item] = []
-
 class NextViewItemController: UIViewController {
-    
-    var date: Date!
-    
-    let realm = try! Realm()
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var datetextField: UITextField!
     @IBOutlet var markSwitch: UISwitch!
     
+    let realm = try! Realm()
+    var date: Date!
+    var items: [item] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     let df = DateFormatter()
+        let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
-        if let date = date {
-               datetextField.text = df.string(from: date)
-           } else {
-               datetextField.text = "日付が設定されていません" // もしくは他のデフォルト値を設定
-           }
-//       datetextField.text = df.string(from: date)
-//        self.date
-//        // Do any additional setup after loading the view.
+        datetextField.text = df.string(from: date)
     }
     
     @IBAction func save(){
@@ -41,17 +32,14 @@ class NextViewItemController: UIViewController {
         item.date = datetextField.text ?? ""
         item.isMarked = markSwitch.isOn
         createItem(item: item)
-        if let presentingViewController = presentingViewController as? ViewController {
-                   presentingViewController.items = presentingViewController.readItems()
-                   presentingViewController.tableview.reloadData()
-               }
-
-//       画面遷移前のtableviewのデータとテーブルをリロード
+        guard let prevVC = presentingViewController as? ViewController else { return }
+        prevVC.items = prevVC.readItems()
+        prevVC.tableview.reloadData()
         self.dismiss(animated: true)
     }
     
     @IBAction func backBtnAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true)
     }
     
     func createItem(item: item) {
@@ -60,4 +48,3 @@ class NextViewItemController: UIViewController {
         }
     }
 }
-
