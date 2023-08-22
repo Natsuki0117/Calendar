@@ -66,8 +66,24 @@ extension ViewController: FSCalendarDelegate {
         self.date = date
         
         // ① item.dateがdateと一致するデータを取得してdisplayedItemsに代入する
-        
+        displayedItems = getEvents(for: date)
         // ② tableViewの表示内容を更新する
-        
+        tableview.reloadData()
+
     }
+
+    func getEvents(for date: Date) -> [item] {
+        // カレンダーを使用して、選択した日付の開始と終了を計算します
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: date)
+        let endOfDay = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: date) ?? date
+
+        // Realmからデータを取得して、Date型の 'date' プロパティと比較
+        let eventsForDate = realm.objects(item.self).filter("date >= %@ AND date <= %@", startOfDay, endOfDay)
+
+        // 結果を配列に変換して返す
+        return Array(eventsForDate)
+    }
+        
+
 }
