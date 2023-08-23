@@ -35,6 +35,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+//    セルをタップした時に行番号を出力
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+var alertController = UIAlertController()
+        alertController = UIAlertController(title: "タイトル", message: "イベント",preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK",style: .default,handler: nil))
+        present(alertController, animated: true)
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (acrion) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(cancel)
+    }
+    
+    
     // Realmからデータを取得
     func readItems() -> [item] { // 引数にdateを取る
         return Array(realm.objects(item.self)) // Realmのデータのうちdateが一致するものを取得して返す
@@ -64,12 +77,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 extension ViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         self.date = date
-        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
         // ① item.dateがdateと一致するデータを取得してdisplayedItemsに代入する
-        displayedItems = Array(realm.objects(item.self).filter("date == '2023/08/23'"))
+        displayedItems = Array(realm.objects(item.self).filter("date == %@", df.string(from: date)))
         // ② tableViewの表示内容を更新する
         tableview.reloadData()
     }
 }
-  
-

@@ -52,6 +52,10 @@
                                 <rect key="frame" x="31" y="552" width="313" height="226"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="uMG-Qz-ti7"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vgR-An-eMF"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ffe-Qk-f8T">
                                 <rect key="frame" x="31" y="497" width="313" height="56"/>
