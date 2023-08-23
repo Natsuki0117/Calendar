@@ -127,7 +127,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Save"/>
                                 <connections>
-                                    <action selector="save" destination="wfL-O6-4u2" eventType="touchUpInside" id="TXa-9g-0pw"/>
+                                    <action selector="save" destination="wfL-O6-4u2" eventType="touchUpInside" id="RDS-dK-zyy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L44-cJ-hnW">

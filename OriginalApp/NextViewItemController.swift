@@ -32,7 +32,8 @@ class NextViewItemController: UIViewController {
         item.date = datetextField.text ?? ""
         item.isMarked = markSwitch.isOn
         createItem(item: item)
-        guard let prevVC = presentingViewController as? ViewController else { return }
+        let nav = self.presentingViewController as! UINavigationController
+        let prevVC = nav.viewControllers.last as! ViewController
         prevVC.items = prevVC.readItems()
         prevVC.tableview.reloadData()
         self.dismiss(animated: true)
