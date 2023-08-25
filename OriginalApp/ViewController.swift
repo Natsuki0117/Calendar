@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 import RealmSwift
 import FSCalendar
 
@@ -35,19 +36,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-//    セルをタップした時に行番号を出力
+    // セルをタップした時に行番号を出力
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-var alertController = UIAlertController()
-        alertController = UIAlertController(title: "タイトル", message: "イベント",preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK",style: .default,handler: nil))
-        present(alertController, animated: true)
-        let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (acrion) in
+        let customCell = tableView.cellForRow(at: indexPath) as! ItemTableViewCell
+        let titleText = customCell.titlelabel.text // カスタムセルからtitletextを取得
+
+        let alertController = UIAlertController(title: "タイトル", message: titleText, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        // キャンセルボタンを追加
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
             self.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(cancel)
+        
+        present(alertController, animated: true)
     }
-    
-    
+
     // Realmからデータを取得
     func readItems() -> [item] { // 引数にdateを取る
         return Array(realm.objects(item.self)) // Realmのデータのうちdateが一致するものを取得して返す
@@ -69,6 +74,10 @@ var alertController = UIAlertController()
     @IBAction func addItem() {
         let nextVC = storyboard?.instantiateViewController(withIdentifier: "NewItem") as! NextViewItemController
         nextVC.date = self.date
+       
+       
+          // テーブルビューをリロードする
+          self.tableview.reloadData()
         self.present(nextVC, animated: true, completion: nil)
     }
 }

@@ -17,6 +17,7 @@ class NextViewItemController: UIViewController {
     let realm = try! Realm()
     var date: Date!
     var items: [item] = []
+    var event: item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,4 +49,5 @@ class NextViewItemController: UIViewController {
             realm.add(item)
         }
     }
+    
 }
