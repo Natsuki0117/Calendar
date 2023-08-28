@@ -11,6 +11,5 @@ import RealmSwift
 class item: Object{
     @Persisted var title: String = ""
     @Persisted var date: String = ""
-    @Persisted var isMarked: Bool = false
     
 }

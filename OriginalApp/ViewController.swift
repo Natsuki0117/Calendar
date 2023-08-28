@@ -32,7 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemTableViewCell
         let item = displayedItems[indexPath.row] // displayedEventsからデータを取得するように変更
-        cell.setCell(title: item.title, date: item.date, isMarked: item.isMarked)
+        cell.setCell(title: item.title, date: item.date)
         return cell
     }
     
@@ -42,16 +42,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let titleText = customCell.titlelabel.text // カスタムセルからtitletextを取得
 
         let alertController = UIAlertController(title: "タイトル", message: titleText, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
+        alertController.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            let storyboard: UIStoryboard = self.storyboard!
+            let nextView = storyboard.instantiateViewController(withIdentifier: "detail")
+            self.present(nextView, animated: true, completion: nil)
+        })
+
         // キャンセルボタンを追加
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
             self.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(cancel)
-        
+
         present(alertController, animated: true)
     }
+
 
     // Realmからデータを取得
     func readItems() -> [item] { // 引数にdateを取る
@@ -80,6 +85,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
           self.tableview.reloadData()
         self.present(nextVC, animated: true, completion: nil)
     }
+    
 }
 
 // 以下はFSCalendar関連のクラス拡張

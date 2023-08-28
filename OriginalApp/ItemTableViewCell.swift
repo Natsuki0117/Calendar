@@ -11,7 +11,7 @@ class ItemTableViewCell: UITableViewCell {
     
     @IBOutlet var titlelabel: UILabel!
     @IBOutlet var datelabel: UILabel!
-    @IBOutlet var markImageView: UIImageView!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,19 +24,10 @@ class ItemTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setCell(title: String, date: String, isMarked: Bool) {
+    func setCell(title: String, date: String) {
         titlelabel.text = title
         
         datelabel.text = date
-        
-               if isMarked {
-                    markImageView.image = UIImage(systemName: "star.fill")
-        
-              } else {
-            markImageView.image = UIImage(systemName: "star")
-        
-    }
-        
         
     }
 }
