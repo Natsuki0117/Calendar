@@ -12,6 +12,7 @@ class NextViewItemController: UIViewController {
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var datetextField: UITextField!
+    @IBOutlet var detailTextField: UITextField!
     
     
     let realm = try! Realm()
@@ -31,6 +32,7 @@ class NextViewItemController: UIViewController {
         let item = item()
         item.title = titleTextField.text ?? ""
         item.date = datetextField.text ?? ""
+        
         createItem(item: item)
         let nav = self.presentingViewController as! UINavigationController
         let prevVC = nav.viewControllers.last as! ViewController

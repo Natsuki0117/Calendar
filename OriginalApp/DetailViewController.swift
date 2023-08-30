@@ -8,7 +8,10 @@
 import Foundation
 import UIKit
 class DetailViewController: UIViewController{
-    
-    
 
+    @IBAction func returnBtn(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }

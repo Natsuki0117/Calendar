@@ -13,39 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        // Realmの設定オブジェクトを取得
-        let config = Realm.Configuration(
-            schemaVersion: 3, // スキーマバージョンを指定
-            migrationBlock: { migration, oldSchemaVersion in
-                if oldSchemaVersion < 2 {
-                    // スキーマバージョンが1以下の場合に実行されるマイグレーション処理を記述
-                    // 例: migration.enumerateObjects(ofType: YourObject.className()) { oldObject, newObject in
-                    //       // マイグレーション処理のコードを記述
-                    //     }
-                }
-                // 他のバージョンのマイグレーション処理をここに追加
-            })
-
-        // マイグレーション処理を実行
-        do {
-            let realm = try Realm(configuration: config)
-            print("Realmのスキーマバージョン: \(realm.configuration.schemaVersion)")
-        } catch {
-            print("Realmマイグレーションエラー: \(error)")
-        }
-
-        return true
-    }
+  
 }
 
-    
-    
-    
-        
-        
-        
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             // Override point for customization after application launch.
             
