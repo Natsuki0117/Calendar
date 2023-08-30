@@ -40,11 +40,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let customCell = tableView.cellForRow(at: indexPath) as! ItemTableViewCell
         let titleText = customCell.titlelabel.text // カスタムセルからtitletextを取得
+        let dateText = customCell.datelabel.text //タイトルにdateを代入
+        
 
-        let alertController = UIAlertController(title: "タイトル", message: titleText, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+        let alertController = UIAlertController(title: dateText, message: titleText, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "詳細", style: .default) { _ in
             let storyboard: UIStoryboard = self.storyboard!
-            let nextView = storyboard.instantiateViewController(withIdentifier: "detail")
+            let nextView = storyboard.instantiateViewController(withIdentifier: "detail") as! DetailViewController
+            nextView.todo = titleText
+            nextView.detail = "bbb"
             self.present(nextView, animated: true, completion: nil)
         })
 

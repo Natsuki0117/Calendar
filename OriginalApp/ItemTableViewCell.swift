@@ -12,8 +12,6 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet var titlelabel: UILabel!
     @IBOutlet var datelabel: UILabel!
     
-
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

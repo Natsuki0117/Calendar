@@ -2,16 +2,24 @@
 //  DetailViewController.swift
 //  OriginalApp
 //
-//  Created by 金井菜津希 on 2023/08/28.
+//  Created by 金井菜津希 on 2023/08/30.
 //
 
-import Foundation
 import UIKit
-class DetailViewController: UIViewController{
 
-    @IBAction func returnBtn(){
-        self.dismiss(animated: true, completion: nil)
+class DetailViewController: UIViewController {
+    
+   @IBOutlet  var todo: String!
+   @IBOutlet var detail: String!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.todo = "aaa"
+        
     }
     
-    
+    @IBAction func back() {
+        self.dismiss(animated: true)
+    }
+
 }

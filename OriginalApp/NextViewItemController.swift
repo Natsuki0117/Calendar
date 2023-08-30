@@ -12,7 +12,7 @@ class NextViewItemController: UIViewController {
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var datetextField: UITextField!
-    @IBOutlet var detailTextField: UITextField!
+    @IBOutlet var detailTextView: UITextView!
     
     
     let realm = try! Realm()
@@ -22,7 +22,6 @@ class NextViewItemController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
         datetextField.text = df.string(from: date)
@@ -32,6 +31,7 @@ class NextViewItemController: UIViewController {
         let item = item()
         item.title = titleTextField.text ?? ""
         item.date = datetextField.text ?? ""
+        item.detail = detailTextView.text ?? ""
         
         createItem(item: item)
         let nav = self.presentingViewController as! UINavigationController
