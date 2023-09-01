@@ -21,6 +21,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableview.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
         items = readItems()
         tableview.reloadData()
+
+   
+            
     }
     
     // テーブルビューの行数
@@ -104,3 +107,28 @@ extension ViewController: FSCalendarDelegate {
         tableview.reloadData()
     }
 }
+
+extension ViewController: FSCalendarDataSource {
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        let dateString = df.string(from: date)
+        
+        // 指定した日付のイベント数をカウント
+        let eventsCount = realm.objects(item.self).filter("date == %@", dateString).count
+        
+        // 背景が赤くなるための最小イベント数（3個）と背景がピンクになるための最小イベント数（1個）を定義
+        let minEventsCountForRedBackground = 3
+        let minEventsCountForPinkBackground = 1
+        
+        if eventsCount >= minEventsCountForRedBackground {
+            return minEventsCountForRedBackground // 赤い背景
+        } else if eventsCount >= minEventsCountForPinkBackground {
+            return eventsCount // ピンクの背景
+        } else {
+            return 0 // デフォルトの背景
+        }
+    }
+}
+
+

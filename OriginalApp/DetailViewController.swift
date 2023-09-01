@@ -6,18 +6,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DetailViewController: UIViewController {
     
    @IBOutlet  var todo: String!
    @IBOutlet var detail: String!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.todo = "aaa"
-        
-    }
+    let realm = try! Realm()
+var item: item? // ItemはRealmのモデルオブジェクトの想定です
     
+ 
     @IBAction func back() {
         self.dismiss(animated: true)
     }
