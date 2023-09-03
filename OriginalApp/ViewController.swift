@@ -21,9 +21,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableview.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
         items = readItems()
         tableview.reloadData()
-
-   
-            
+        
+        
+        
     }
     
     // テーブルビューの行数
@@ -44,27 +44,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let customCell = tableView.cellForRow(at: indexPath) as! ItemTableViewCell
         let titleText = customCell.titlelabel.text // カスタムセルからtitletextを取得
         let dateText = customCell.datelabel.text //タイトルにdateを代入
-        
-
-        let alertController = UIAlertController(title: dateText, message: titleText, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "詳細", style: .default) { _ in
-            let storyboard: UIStoryboard = self.storyboard!
-            let nextView = storyboard.instantiateViewController(withIdentifier: "detail") as! DetailViewController
-            nextView.todo = titleText
-            nextView.detail = "bbb"
-            self.present(nextView, animated: true, completion: nil)
-        })
-
-        // キャンセルボタンを追加
-        let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
-            self.dismiss(animated: true, completion: nil)
+        if let item = realm.objects(item.self).filter("title == %@", titleText).first {
+            // item オブジェクトから詳細情報を取得
+            let detailText = item.detail
+            
+            
+            let alertController = UIAlertController(title: dateText, message: detailText, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                let storyboard: UIStoryboard = self.storyboard!
+                
+                
+            })
+            
+            //        // キャンセルボタンを追加
+            //        let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
+            //            self.dismiss(animated: true, completion: nil)
+            //        }
+            //        alertController.addAction(cancel)
+            //
+            present(alertController, animated: true)
         }
-        alertController.addAction(cancel)
-
-        present(alertController, animated: true)
     }
-
-
+    
+    
     // Realmからデータを取得
     func readItems() -> [item] { // 引数にdateを取る
         return Array(realm.objects(item.self)) // Realmのデータのうちdateが一致するものを取得して返す
@@ -77,23 +79,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             try! realm.write {
                 let item = displayedItems.remove(at: indexPath.row) // displayedItemsから削除
                 realm.delete(item)
-                tableView.deleteRows(at: [indexPath], with: .automatic)
             }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+    
     
     // アイテム追加ボタン押下時の処理(画面遷移)
     @IBAction func addItem() {
         let nextVC = storyboard?.instantiateViewController(withIdentifier: "NewItem") as! NextViewItemController
         nextVC.date = self.date
-       
-       
-          // テーブルビューをリロードする
-          self.tableview.reloadData()
+        
+        
+        // テーブルビューをリロードする
+        self.tableview.reloadData()
         self.present(nextVC, animated: true, completion: nil)
     }
-    
 }
+
 
 // 以下はFSCalendar関連のクラス拡張
 extension ViewController: FSCalendarDelegate {
@@ -130,5 +133,3 @@ extension ViewController: FSCalendarDataSource {
         }
     }
 }
-
-
