@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let realm = try! Realm()
     var items: [item] = []
     var date: Date!
+    
     var displayedItems: [item] = [] // 表示するイベントを保持する配列
     
     // 画面表示時に実行される処理
@@ -21,8 +22,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableview.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
         items = readItems()
         tableview.reloadData()
-        
-        
         
     }
     
@@ -65,8 +64,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             present(alertController, animated: true)
         }
     }
-    
-    
     // Realmからデータを取得
     func readItems() -> [item] { // 引数にdateを取る
         return Array(realm.objects(item.self)) // Realmのデータのうちdateが一致するものを取得して返す
@@ -83,8 +80,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-    
-    
     // アイテム追加ボタン押下時の処理(画面遷移)
     @IBAction func addItem() {
         let nextVC = storyboard?.instantiateViewController(withIdentifier: "NewItem") as! NextViewItemController
@@ -95,41 +90,55 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableview.reloadData()
         self.present(nextVC, animated: true, completion: nil)
     }
+    
+//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
+//        let df = DateFormatter()
+//        df.dateFormat = "yyyy/MM/dd"
+//        let dateString = df.string(from: date)
+//        let eventsCount = realm.objects(item.self).filter("date == %@", dateString).count
+//
+//        switch eventsCount {
+//        case 0:
+//            return UIColor.gray // イベントがない場合の背景色
+//        case 1...2:
+//            return UIColor.yellow // 1つまたは2つのイベントの場合の背景色
+//        default:
+//            return UIColor.red // 3つ以上のイベントの場合の背景色
+//        }
+//    }
 }
-
-
-// 以下はFSCalendar関連のクラス拡張
-extension ViewController: FSCalendarDelegate {
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        self.date = date
-        let df = DateFormatter()
-        df.dateFormat = "yyyy/MM/dd"
-        // ① item.dateがdateと一致するデータを取得してdisplayedItemsに代入する
-        displayedItems = Array(realm.objects(item.self).filter("date == %@", df.string(from: date)))
-        // ② tableViewの表示内容を更新する
-        tableview.reloadData()
+    
+    
+    
+    // 以下はFSCalendar関連のクラス拡張
+    extension ViewController: FSCalendarDelegate {
+        func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            self.date = date
+            let df = DateFormatter()
+            df.dateFormat = "yyyy/MM/dd"
+            // ① item.dateがdateと一致するデータを取得してdisplayedItemsに代入する
+            displayedItems = Array(realm.objects(item.self).filter("date == %@", df.string(from: date)))
+            // ② tableViewの表示内容を更新する
+            tableview.reloadData()
+        }
     }
-}
-
-extension ViewController: FSCalendarDataSource {
-    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
         let dateString = df.string(from: date)
+    print("Date")
+        // realmをオプショナルバインディングでアクセス
+        if let realm = try? Realm() {
+            let eventsCount = realm.objects(item.self).filter("date == %@", dateString).count
         
-        // 指定した日付のイベント数をカウント
-        let eventsCount = realm.objects(item.self).filter("date == %@", dateString).count
-        
-        // 背景が赤くなるための最小イベント数（3個）と背景がピンクになるための最小イベント数（1個）を定義
-        let minEventsCountForRedBackground = 3
-        let minEventsCountForPinkBackground = 1
-        
-        if eventsCount >= minEventsCountForRedBackground {
-            return minEventsCountForRedBackground // 赤い背景
-        } else if eventsCount >= minEventsCountForPinkBackground {
-            return eventsCount // ピンクの背景
-        } else {
-            return 0 // デフォルトの背景
+            switch eventsCount {
+            case 0:
+                return UIColor.gray // イベントがない場合の背景色
+            case 1...2:
+                return UIColor.yellow // 1つまたは2つのイベントの場合の背景色
+            default:
+                return UIColor.red // 3つ以上のイベントの場合の背景色
+            }
         }
+        return nil
     }
-}
