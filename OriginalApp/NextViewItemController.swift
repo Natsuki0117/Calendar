@@ -36,6 +36,7 @@ class NextViewItemController: UIViewController {
         createItem(item: item)
         let nav = self.presentingViewController as! UINavigationController
         let prevVC = nav.viewControllers.last as! ViewController
+        prevVC.calendar.reloadData()
         prevVC.items = prevVC.readItems()
         prevVC.tableview.reloadData()
         self.dismiss(animated: true)
@@ -48,6 +49,14 @@ class NextViewItemController: UIViewController {
     func createItem(item: item) {
         try! realm.write{
             realm.add(item)
+        }
+    }
+    let textColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+        // ダークモードの場合
+        if traitCollection.userInterfaceStyle == .dark {
+            return .white
+        } else {
+            return .blue
         }
     }
     
