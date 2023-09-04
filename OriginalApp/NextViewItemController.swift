@@ -36,6 +36,7 @@ class NextViewItemController: UIViewController {
         createItem(item: item)
         let nav = self.presentingViewController as! UINavigationController
         let prevVC = nav.viewControllers.last as! ViewController
+        prevVC.calendar.reloadData()
         prevVC.items = prevVC.readItems()
         prevVC.tableview.reloadData()
         self.dismiss(animated: true)
@@ -50,5 +51,4 @@ class NextViewItemController: UIViewController {
             realm.add(item)
         }
     }
-    
 }

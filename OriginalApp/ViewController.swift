@@ -22,7 +22,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableview.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
         items = readItems()
         tableview.reloadData()
-        
     }
     
     // テーブルビューの行数
@@ -90,55 +89,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableview.reloadData()
         self.present(nextVC, animated: true, completion: nil)
     }
-    
-//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
-//        let df = DateFormatter()
-//        df.dateFormat = "yyyy/MM/dd"
-//        let dateString = df.string(from: date)
-//        let eventsCount = realm.objects(item.self).filter("date == %@", dateString).count
-//
-//        switch eventsCount {
-//        case 0:
-//            return UIColor.gray // イベントがない場合の背景色
-//        case 1...2:
-//            return UIColor.yellow // 1つまたは2つのイベントの場合の背景色
-//        default:
-//            return UIColor.red // 3つ以上のイベントの場合の背景色
-//        }
-//    }
 }
-    
-    
-    
-    // 以下はFSCalendar関連のクラス拡張
-    extension ViewController: FSCalendarDelegate {
-        func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-            self.date = date
-            let df = DateFormatter()
-            df.dateFormat = "yyyy/MM/dd"
-            // ① item.dateがdateと一致するデータを取得してdisplayedItemsに代入する
-            displayedItems = Array(realm.objects(item.self).filter("date == %@", df.string(from: date)))
-            // ② tableViewの表示内容を更新する
-            tableview.reloadData()
-        }
+
+// 以下はFSCalendar関連のクラス拡張
+extension ViewController: FSCalendarDelegate, FSCalendarDelegateAppearance {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        self.date = date
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        // ① item.dateがdateと一致するデータを取得してdisplayedItemsに代入する
+        displayedItems = Array(realm.objects(item.self).filter("date == %@", df.string(from: date)))
+        // ② tableViewの表示内容を更新する
+        tableview.reloadData()
     }
-func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
         let dateString = df.string(from: date)
-    print("Date")
-        // realmをオプショナルバインディングでアクセス
-        if let realm = try? Realm() {
-            let eventsCount = realm.objects(item.self).filter("date == %@", dateString).count
         
-            switch eventsCount {
-            case 0:
-                return UIColor.gray // イベントがない場合の背景色
-            case 1...2:
-                return UIColor.yellow // 1つまたは2つのイベントの場合の背景色
-            default:
-                return UIColor.red // 3つ以上のイベントの場合の背景色
-            }
+        // realmをオプショナルバインディングでアクセス
+        let eventsCount = realm.objects(item.self).filter("date == %@", dateString).count
+        switch eventsCount {
+        case 1...2:
+            return UIColor.yellow // イベントがない場合の背景色
+        case 3:
+            return UIColor.red // 1つまたは2つのイベントの場合の背景色
+        default:
+            return UIColor.white // 3つ以上のイベントの場合の背景色
         }
-        return nil
     }
+}
