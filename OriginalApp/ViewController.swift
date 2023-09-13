@@ -51,15 +51,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             alertController.addAction(UIAlertAction(title: "OK", style: .default) { _ in
                 let storyboard: UIStoryboard = self.storyboard!
                 
-                
             })
-            
-            //        // キャンセルボタンを追加
-            //        let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
-            //            self.dismiss(animated: true, completion: nil)
-            //        }
-            //        alertController.addAction(cancel)
-            //
             present(alertController, animated: true)
         }
     }
@@ -83,8 +75,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func addItem() {
         let nextVC = storyboard?.instantiateViewController(withIdentifier: "NewItem") as! NextViewItemController
         nextVC.date = self.date
-        
-        
         // テーブルビューをリロードする
         self.tableview.reloadData()
         self.present(nextVC, animated: true, completion: nil)
@@ -109,11 +99,11 @@ extension ViewController: FSCalendarDelegate, FSCalendarDelegateAppearance {
         let eventsCount = realm.objects(item.self).filter("date == %@", dateString).count
         switch eventsCount {
         case 1...2:
-            return UIColor.systemTeal // イベントがない場合の背景色
+            return UIColor.systemYellow // イベントが1つか２つの時
         case 3:
-            return UIColor.systemBlue // 1つまたは2つのイベントの場合の背景色
+            return UIColor.systemRed // イベントが三つ以上の場合の背景色
         default:
-            return UIColor.white // 3つ以上のイベントの場合の背景色
+            return UIColor.clear // イベントが0個の時の場合の背景色
         }
     }
 }

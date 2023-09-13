@@ -20,12 +20,13 @@
 		809BD9FF2A5EB78E00BFB643 /* NextViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809BD9FE2A5EB78E00BFB643 /* NextViewItemController.swift */; };
 		80A3C5B52A67EC440013CCC8 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C5B32A67EC440013CCC8 /* ItemTableViewCell.swift */; };
 		80A3C5B62A67EC440013CCC8 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A3C5B42A67EC440013CCC8 /* ItemTableViewCell.xib */; };
+		80A71F3F2AA60524004B5C52 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A71F3E2AA60524004B5C52 /* icon.png */; };
 		A7E42ACFB5E7C7A412773393 /* Pods_OriginalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B53095DE5B0BC4319A42E93 /* Pods_OriginalApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6B53095DE5B0BC4319A42E93 /* Pods_OriginalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OriginalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		801941C22A42FEB7005E7C40 /* OriginalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OriginalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		801941C22A42FEB7005E7C40 /* CalenDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalenDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		801941C52A42FEB7005E7C40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		801941C72A42FEB7005E7C40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		801941C92A42FEB7005E7C40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		809BD9FE2A5EB78E00BFB643 /* NextViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewItemController.swift; sourceTree = "<group>"; };
 		80A3C5B32A67EC440013CCC8 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		80A3C5B42A67EC440013CCC8 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		80A71F3E2AA60524004B5C52 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D3C4B1024F73BEB65C3A5173 /* Pods-OriginalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalApp.debug.xcconfig"; path = "Target Support Files/Pods-OriginalApp/Pods-OriginalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D76BA31E4D1EDD754C48CE78 /* Pods-OriginalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalApp.release.xcconfig"; path = "Target Support Files/Pods-OriginalApp/Pods-OriginalApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,17 +71,17 @@
 		801941B92A42FEB7005E7C40 = {
 			isa = PBXGroup;
 			children = (
-				801941C42A42FEB7005E7C40 /* OriginalApp */,
-				801941C32A42FEB7005E7C40 /* Products */,
-				88A93ADF4770E9395AE21C4F /* Pods */,
 				10A89D78349CAB4283EF8A22 /* Frameworks */,
+				801941C42A42FEB7005E7C40 /* OriginalApp */,
+				88A93ADF4770E9395AE21C4F /* Pods */,
+				801941C32A42FEB7005E7C40 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
 		801941C32A42FEB7005E7C40 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				801941C22A42FEB7005E7C40 /* OriginalApp.app */,
+				801941C22A42FEB7005E7C40 /* CalenDo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +94,7 @@
 				801941C72A42FEB7005E7C40 /* SceneDelegate.swift */,
 				801941C92A42FEB7005E7C40 /* ViewController.swift */,
 				801941CB2A42FEB7005E7C40 /* Main.storyboard */,
+				80A71F3E2AA60524004B5C52 /* icon.png */,
 				801941CE2A42FEB8005E7C40 /* Assets.xcassets */,
 				801941D02A42FEB8005E7C40 /* LaunchScreen.storyboard */,
 				801941D32A42FEB8005E7C40 /* Info.plist */,
@@ -114,9 +117,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		801941C12A42FEB7005E7C40 /* OriginalApp */ = {
+		801941C12A42FEB7005E7C40 /* CalenDo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 801941D62A42FEB8005E7C40 /* Build configuration list for PBXNativeTarget "OriginalApp" */;
+			buildConfigurationList = 801941D62A42FEB8005E7C40 /* Build configuration list for PBXNativeTarget "CalenDo" */;
 			buildPhases = (
 				6ED79D7E9735FF2A2E80BB29 /* [CP] Check Pods Manifest.lock */,
 				801941BE2A42FEB7005E7C40 /* Sources */,
@@ -128,13 +131,13 @@
 			);
 			dependencies = (
 			);
-			name = OriginalApp;
+			name = CalenDo;
 			packageProductDependencies = (
 				809BD9C12A44828C00BFB643 /* Realm */,
 				809BD9C32A44828C00BFB643 /* RealmSwift */,
 			);
 			productName = OriginalApp;
-			productReference = 801941C22A42FEB7005E7C40 /* OriginalApp.app */;
+			productReference = 801941C22A42FEB7005E7C40 /* CalenDo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -152,7 +155,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 801941BD2A42FEB7005E7C40 /* Build configuration list for PBXProject "OriginalApp" */;
+			buildConfigurationList = 801941BD2A42FEB7005E7C40 /* Build configuration list for PBXProject "CalenDo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -168,7 +171,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				801941C12A42FEB7005E7C40 /* OriginalApp */,
+				801941C12A42FEB7005E7C40 /* CalenDo */,
 			);
 		};
 /* End PBXProject section */
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80A3C5B62A67EC440013CCC8 /* ItemTableViewCell.xib in Resources */,
+				80A71F3F2AA60524004B5C52 /* icon.png in Resources */,
 				801941D22A42FEB8005E7C40 /* LaunchScreen.storyboard in Resources */,
 				801941CF2A42FEB8005E7C40 /* Assets.xcassets in Resources */,
 				801941CD2A42FEB7005E7C40 /* Main.storyboard in Resources */,
@@ -443,7 +447,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		801941BD2A42FEB7005E7C40 /* Build configuration list for PBXProject "OriginalApp" */ = {
+		801941BD2A42FEB7005E7C40 /* Build configuration list for PBXProject "CalenDo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				801941D42A42FEB8005E7C40 /* Debug */,
@@ -452,7 +456,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		801941D62A42FEB8005E7C40 /* Build configuration list for PBXNativeTarget "OriginalApp" */ = {
+		801941D62A42FEB8005E7C40 /* Build configuration list for PBXNativeTarget "CalenDo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				801941D72A42FEB8005E7C40 /* Debug */,
