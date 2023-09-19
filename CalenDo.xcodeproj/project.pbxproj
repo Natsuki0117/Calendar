@@ -21,11 +21,11 @@
 		80A3C5B52A67EC440013CCC8 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A3C5B32A67EC440013CCC8 /* ItemTableViewCell.swift */; };
 		80A3C5B62A67EC440013CCC8 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A3C5B42A67EC440013CCC8 /* ItemTableViewCell.xib */; };
 		80A71F3F2AA60524004B5C52 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 80A71F3E2AA60524004B5C52 /* icon.png */; };
-		A7E42ACFB5E7C7A412773393 /* Pods_OriginalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B53095DE5B0BC4319A42E93 /* Pods_OriginalApp.framework */; };
+		E1A24106B8322CC180CBD6C0 /* Pods_CalenDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314C3899405705F0BE5EBDAF /* Pods_CalenDo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6B53095DE5B0BC4319A42E93 /* Pods_OriginalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OriginalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		314C3899405705F0BE5EBDAF /* Pods_CalenDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalenDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		801941C22A42FEB7005E7C40 /* CalenDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalenDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		801941C52A42FEB7005E7C40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		801941C72A42FEB7005E7C40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +40,8 @@
 		80A3C5B32A67EC440013CCC8 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		80A3C5B42A67EC440013CCC8 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		80A71F3E2AA60524004B5C52 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		873F9E22B457D8608C2AB9D5 /* Pods-CalenDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalenDo.debug.xcconfig"; path = "Target Support Files/Pods-CalenDo/Pods-CalenDo.debug.xcconfig"; sourceTree = "<group>"; };
+		C90BD605A2E8C89642BAC23E /* Pods-CalenDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalenDo.release.xcconfig"; path = "Target Support Files/Pods-CalenDo/Pods-CalenDo.release.xcconfig"; sourceTree = "<group>"; };
 		D3C4B1024F73BEB65C3A5173 /* Pods-OriginalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalApp.debug.xcconfig"; path = "Target Support Files/Pods-OriginalApp/Pods-OriginalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D76BA31E4D1EDD754C48CE78 /* Pods-OriginalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalApp.release.xcconfig"; path = "Target Support Files/Pods-OriginalApp/Pods-OriginalApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,8 +53,8 @@
 			files = (
 				809BD9C42A44828C00BFB643 /* RealmSwift in Frameworks */,
 				809BD9C22A44828C00BFB643 /* Realm in Frameworks */,
-				A7E42ACFB5E7C7A412773393 /* Pods_OriginalApp.framework in Frameworks */,
 				809BD9CB2A44954900BFB643 /* FSCalendar.framework in Frameworks */,
+				E1A24106B8322CC180CBD6C0 /* Pods_CalenDo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				801941D92A4301A2005E7C40 /* FSCalendar.framework */,
-				6B53095DE5B0BC4319A42E93 /* Pods_OriginalApp.framework */,
+				314C3899405705F0BE5EBDAF /* Pods_CalenDo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -71,8 +73,8 @@
 		801941B92A42FEB7005E7C40 = {
 			isa = PBXGroup;
 			children = (
+				801941C42A42FEB7005E7C40 /* CalenDo */,
 				10A89D78349CAB4283EF8A22 /* Frameworks */,
-				801941C42A42FEB7005E7C40 /* OriginalApp */,
 				88A93ADF4770E9395AE21C4F /* Pods */,
 				801941C32A42FEB7005E7C40 /* Products */,
 			);
@@ -86,7 +88,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		801941C42A42FEB7005E7C40 /* OriginalApp */ = {
+		801941C42A42FEB7005E7C40 /* CalenDo */ = {
 			isa = PBXGroup;
 			children = (
 				801941C52A42FEB7005E7C40 /* AppDelegate.swift */,
@@ -102,7 +104,7 @@
 				80A3C5B32A67EC440013CCC8 /* ItemTableViewCell.swift */,
 				80A3C5B42A67EC440013CCC8 /* ItemTableViewCell.xib */,
 			);
-			path = OriginalApp;
+			path = CalenDo;
 			sourceTree = "<group>";
 		};
 		88A93ADF4770E9395AE21C4F /* Pods */ = {
@@ -110,6 +112,8 @@
 			children = (
 				D3C4B1024F73BEB65C3A5173 /* Pods-OriginalApp.debug.xcconfig */,
 				D76BA31E4D1EDD754C48CE78 /* Pods-OriginalApp.release.xcconfig */,
+				873F9E22B457D8608C2AB9D5 /* Pods-CalenDo.debug.xcconfig */,
+				C90BD605A2E8C89642BAC23E /* Pods-CalenDo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -207,7 +211,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OriginalApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CalenDo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -220,15 +224,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OriginalApp/Pods-OriginalApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-CalenDo/Pods-CalenDo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OriginalApp/Pods-OriginalApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-CalenDo/Pods-CalenDo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OriginalApp/Pods-OriginalApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalenDo/Pods-CalenDo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -386,7 +390,7 @@
 		};
 		801941D72A42FEB8005E7C40 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3C4B1024F73BEB65C3A5173 /* Pods-OriginalApp.debug.xcconfig */;
+			baseConfigurationReference = 873F9E22B457D8608C2AB9D5 /* Pods-CalenDo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -394,7 +398,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6883D837G9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OriginalApp/Info.plist;
+				INFOPLIST_FILE = CalenDo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -416,7 +420,7 @@
 		};
 		801941D82A42FEB8005E7C40 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D76BA31E4D1EDD754C48CE78 /* Pods-OriginalApp.release.xcconfig */;
+			baseConfigurationReference = C90BD605A2E8C89642BAC23E /* Pods-CalenDo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -424,7 +428,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6883D837G9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OriginalApp/Info.plist;
+				INFOPLIST_FILE = CalenDo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
