@@ -16,10 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uOk-3U-Jjx" customClass="FSCalendar">
-                                <rect key="frame" x="29" y="18" width="317" height="311"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uOk-3U-Jjx" customClass="FSCalendar">
+                                <rect key="frame" x="29" y="21" width="317" height="311"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="317" id="2lI-lF-bfj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="317" id="gza-9O-ldG"/>
+                                    <constraint firstAttribute="height" constant="311" id="mAo-6d-UPg"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="311" id="nHk-8A-bkZ"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="eventDefaultColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,10 +53,13 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="XMX-y3-UIg"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6YA-0b-7oW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6YA-0b-7oW">
                                 <rect key="frame" x="28" y="387" width="326" height="260"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="326" id="NYg-xG-CvC"/>
+                                    <constraint firstAttribute="height" constant="260" id="WGe-5R-hBy"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="uMG-Qz-ti7"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="vgR-An-eMF"/>
@@ -73,6 +81,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.96862745289999996" green="0.92004999529999998" blue="0.96328776650000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Ffe-Qk-f8T" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="273" id="8ix-c9-KfD"/>
+                            <constraint firstItem="Ffe-Qk-f8T" firstAttribute="top" secondItem="uOk-3U-Jjx" secondAttribute="bottom" constant="5" id="ksz-tn-YRl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vow-mN-YG6"/>
                     <connections>
